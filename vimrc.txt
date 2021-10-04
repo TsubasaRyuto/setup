@@ -1,0 +1,82 @@
+set backspace=indent,eol,start
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+
+call neobundle#begin(expand('~/.vim/bundle/'))
+
+NeoBundleFetch 'Shougo/neobundle.vim'
+
+" NeoBundle plugin
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'Yggdroot/indentLine'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
+NeoBundle 'altercation/vim-colors-solarized'
+call neobundle#end()
+
+filetype plugin indent on
+
+NeoBundleCheck
+
+" emmet-vim config
+let g:user_emmet_leader_key = '<c-f>'
+
+"neocomplete config
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#min_keyword_length = 2
+let g:neocomplete#enable_auto_delimiter = 1
+let g:neocomplete#auto_completion_start_length = 1
+inoremap <expr><BS> neocomplete#smart_close_popup()."<C-h>"
+imap <expr><CR> neosnippet#expandable() ? "<Plug>(neosnippet_expand_or_jump)" : pumvisible() ? "<C-y>" : "<CR>"
+imap <expr><TAB> pumvisible() ? "<C-n>" : neosnippet#jumpable() ? "<Plug>(neosnippet_expand_or_jump)" : "<TAB>"
+
+" main config
+set encoding=utf-8
+scriptencoding utf-8
+set nobackup
+set noswapfile
+set autoread
+set clipboard+=unnamed
+
+" appearance config
+set number
+set relativenumber
+set cursorline
+set smartindent
+set showmatch
+set listchars=tab:^\ ,trail:~
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set title
+set display=lastline
+set list
+set listchars=tab:>-,trail:.
+set completeopt=menuone
+
+" search config
+set ignorecase
+set incsearch
+set smartcase
+set wrapscan
+
+
+" color scheme
+syntax enable
+set t_Co=256
+set background=dark
+colorscheme solarized
+
+" 矢印キーを無効にする
+noremap <Up> <Nop>
+noremap <Down> <Nop>
+noremap <Left> <Nop>
+noremap <Right> <Nop>
+inoremap <Up> <Nop>
+inoremap <Down> <Nop>
+inoremap <Left> <Nop>
+inoremap <Right> <Nop>
+
+" vim-rettier
+
