@@ -12,6 +12,7 @@ NeoBundle 'Shougo/neocomplete.vim'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'szw/vim-tags'
 call neobundle#end()
 
 filetype plugin indent on
@@ -65,7 +66,7 @@ set wrapscan
 " color scheme
 syntax enable
 set t_Co=256
-set background=dark
+set background=light
 colorscheme solarized
 
 " 矢印キーを無効にする
@@ -80,3 +81,7 @@ inoremap <Right> <Nop>
 
 " vim-rettier
 
+let g:vim_tags_project_tags_command = "/usr/local/bin/ctags -f .tags -R . 2>/dev/null"
+let g:vim_tags_gems_tags_command = "/usr/local/bin/ctags -R -f .Gemfile.lock.tags `bundle show --paths` 2>/dev/null"
+set tags+=.tags
+set tags+=.Gemfile.lock.tags
